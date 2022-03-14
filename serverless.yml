@@ -1,0 +1,32 @@
+service: brainwave
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-south-1
+  stage: test
+plugins:
+  - serverless-offline
+functions:
+  first:
+    handler: handler.first
+    events:
+      - httpApi:
+          path: /first
+          method: get
+          cors: true
+  second:
+    handler: handler.second
+    events:
+      - httpApi:
+          path: /second
+          method: get
+          cors: true
+  third:
+    handler: handler.third
+    events:
+      - httpApi:
+          path: /third
+          method: post
+          cors: true

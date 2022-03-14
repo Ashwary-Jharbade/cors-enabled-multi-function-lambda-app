@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="one">Get Api data will get replaced here</div>
+    <div id="third">Post Api data will get replaced here</div>
+    <script>
+      fetch("GET API Here")
+        .then((data) => {
+          return data.json();
+        })
+        .then((res) => {
+          const obj = document.getElementById("one");
+          obj.innerHTML = res.message;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      fetch("POST Api Here", {
+        method: "POST",
+      })
+        .then((data) => {
+          return data.json();
+        })
+        .then((res) => {
+          const obj = document.getElementById("third");
+          // res?.name is used since name was passed as a query param
+          obj.innerHTML = "Message: " + res?.message + ", Name:" + res?.name;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>
