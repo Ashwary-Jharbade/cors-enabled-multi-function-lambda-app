@@ -1,4 +1,4 @@
-service: brainwave
+service: lambdaApp
 frameworkVersion: "3"
 
 provider:
